@@ -8,7 +8,7 @@
     "prepublish": "npm run build"
   },
   "author": {
-    "name": "Devbook",
+    "name": "FoundryLabs, Inc.",
     "email": "hello@usedevbook.com",
     "url": "https://usedevbook.com/"
   },
@@ -26,8 +26,8 @@
   },
   "files": [
     "lib",
-    "packgage.json",
-    "packgage-lock.json",
+    "package.json",
+    "package-lock.json",
     ".gitignore",
     "README.md"
   ]

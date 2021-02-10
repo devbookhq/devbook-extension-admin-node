@@ -16,7 +16,7 @@ interface ExtensionInfo {
 }
 
 interface DevbookOptions {
-  version?: APIVersion;
+  apiVersion?: APIVersion;
   extensionID: string;
   secretAPIKey: string,
 }
@@ -24,21 +24,21 @@ interface DevbookOptions {
 class Devbook {
   private secretAPIKey: string;
   private extensionID: string;
-  private version = APIVersion.v1;
+  private apiVersion = APIVersion.v1;
 
   public constructor(options: DevbookOptions) {
     this.secretAPIKey = options.secretAPIKey;
     this.extensionID = options.extensionID;
 
-    if (options.version) {
-      this.version = options.version;
+    if (options.apiVersion) {
+      this.apiVersion = options.apiVersion;
     }
   }
 
   private async request(options: { method: Method, route?: string, data?: any, params?: any }) {
     const { method, route, data, params } = options;
     const result = await axios({
-      url: `https://api.usedevbook.com/${this.version}/extension/${this.extensionID}${route ? route : ''}`,
+      url: `https://api.usedevbook.com/${this.apiVersion}/extension/${this.extensionID}${route ? route : ''}`,
       method,
       data,
       params,
