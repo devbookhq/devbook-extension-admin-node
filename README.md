@@ -11,13 +11,13 @@ yarn add @devbookhq/extension-admin
 
 ## Usage
 ```js
-import Devbook from '@devbookhq/extension-admin';
+import Devbook, { APIVersion } from '@devbookhq/extension-admin';
 
 // Initialize the API with your secret key and extension ID. You can find both in the Devbook dashboard.
 const devbook = new Devbook({
   secretAPIKey: 'sk_dev_...',
   extensionID: 'your-extension-id',
-  version: Devbook.APIVersion.v1, // Optional.
+  apiVersion: APIVersion.v1, // Optional.
 });
 
 // Index new extension search entries.
@@ -36,11 +36,12 @@ await devbook.index('indexName', entries);
 // Search extension search data.
 // Arguments:
 // - Array of indexes you want to search in.
+// - Query you want to search for.
 // - Page number (optional, default is 1).
 // - Page size (optional, default is 10)
 const pageNumber = 1;
 const pageSize = 10;
-const results = await devbook.search(['index1', 'index2'], pageNumber, pageSize);
+const results = await devbook.search(['index1', 'index2'], query, pageNumber, pageSize);
 
 // Delete indexed data.
 // Arguments:

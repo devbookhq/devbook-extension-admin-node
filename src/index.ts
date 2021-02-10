@@ -1,6 +1,6 @@
 import axios, { Method } from 'axios';
 
-enum APIVersion {
+export enum APIVersion {
   v1 = 'v1',
 }
 
@@ -49,7 +49,7 @@ class Devbook {
     return result.data;
   }
 
-  public async search<T = Entry>(indexes: string[] | string, query: string, page: number = 1, pageSize: number = 10): Promise<T[]> {
+  public async search(indexes: string[] | string, query: string, page: number = 1, pageSize: number = 10): Promise<Entry[]> {
     return this.request({
       method: 'POST',
       route: '/entry/query',
@@ -64,7 +64,7 @@ class Devbook {
     });
   }
 
-  public async index<T = Entry>(index: string, entries: T[]) {
+  public async index(index: string, entries: Entry[]) {
     await this.request({
       method: 'PUT',
       route: '/entry',
@@ -86,7 +86,7 @@ class Devbook {
     });
   }
 
-  public async entry<T = Entry>(index: string, id: string): Promise<T> {
+  public async entry(index: string, id: string): Promise<Entry> {
     return this.request({
       method: 'GET',
       route: `/entry/${id}`,
@@ -96,7 +96,7 @@ class Devbook {
     });
   }
 
-  public async entries<T = Entry>(index: string, page: number, pageSize: number): Promise<T[]> {
+  public async entries(index: string, page: number, pageSize: number): Promise<Entry[]> {
     return this.request({
       method: 'GET',
       route: '/entry',
