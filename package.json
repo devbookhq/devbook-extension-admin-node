@@ -1,6 +1,6 @@
 {
   "name": "@devbookhq/extension-admin",
-  "version": "0.0.12",
+  "version": "0.0.1",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -15,5 +15,12 @@
   },
   "dependencies": {
     "axios": "^0.21.1"
-  }
+  },
+  "files": [
+    "lib",
+    "packgage.json",
+    "packgage-lock.json",
+    ".gitignore",
+    "README.md"
+  ]
 }
