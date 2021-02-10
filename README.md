@@ -13,7 +13,7 @@ yarn add @devbookhq/extension-admin
 ```js
 import Devbook from '@devbookhq/extension-admin';
 
-// Initialize the API with a your secret key and extension ID. You can find both in the Devbook dashboard.
+// Initialize the API with your secret key and extension ID. You can find both in the Devbook dashboard.
 const devbook = new Devbook({
   secretAPIKey: 'sk_dev_...',
   extensionID: 'your-extension-id',
