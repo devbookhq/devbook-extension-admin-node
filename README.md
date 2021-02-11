@@ -37,11 +37,11 @@ await devbook.index('indexName', entries);
 // Arguments:
 // - Array of indexes you want to search in.
 // - Query you want to search for.
-// - Page number (optional, default is 1).
-// - Page size (optional, default is 10)
-const pageNumber = 1;
+// - Page size (optional, default is 10).
+// - Page number (optional, default is 0).
 const pageSize = 10;
-const results = await devbook.search(['index1', 'index2'], query, pageNumber, pageSize);
+const pageNumber = 0;
+const results = await devbook.search(['index1', 'index2'], query, pageSize, pageNumber);
 
 // Delete indexed data.
 // Arguments:
@@ -58,11 +58,12 @@ const entry = await devbook.entry('indexName', 'entryID');
 // Read multiple entries from an index.
 // Arguments:
 // - Name of the index.
-// - Page number.
-// - Page size
-const pageNumber = 1;
-const pageSize = 10;
-const entries = await devbook.entries('indexName', pageNumber, pageSize);
+// - Page size (optional, default is 100).
+// - Page ID used for pagination of results 
+//   (optional, page ID for retrieving the next page of entries is returned from the `devbook.entries` function - in the `pageID` field of the return object)
+const pageSize = 100;
+const pageID = 'pageID';
+const entries = await devbook.entries('indexName', pageSize, pageID);
 
 // Get information about the extension
 const info = await devbook.info();
