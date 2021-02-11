@@ -38,7 +38,7 @@ await devbook.index('indexName', entries);
 // - Array of indexes you want to search in.
 // - Query you want to search for.
 // - Page number (optional, default is 1).
-// - Page size (optional, default is 10)
+// - Page size (optional, default is 10).
 const pageNumber = 1;
 const pageSize = 10;
 const results = await devbook.search(['index1', 'index2'], query, pageNumber, pageSize);
@@ -59,7 +59,7 @@ const entry = await devbook.entry('indexName', 'entryID');
 // Arguments:
 // - Name of the index.
 // - Page number.
-// - Page size
+// - Page size.
 const pageNumber = 1;
 const pageSize = 10;
 const entries = await devbook.entries('indexName', pageNumber, pageSize);
