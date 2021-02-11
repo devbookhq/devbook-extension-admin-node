@@ -60,7 +60,8 @@ const entry = await devbook.entry('indexName', 'entryID');
 // - Name of the index.
 // - Page size (optional, default is 100).
 // - Page ID used for pagination of results 
-//   (optional, page ID for retrieving the next page of entries is returned from the `devbook.entries` function - in the `pageID` field of the return object)
+//   (optional, page ID for retrieving the next page of entries.
+//   Is returned from the `devbook.entries` function in the `pageID` field of the return object.)
 const pageSize = 100;
 const pageID = 'pageID';
 const entries = await devbook.entries('indexName', pageSize, pageID);
