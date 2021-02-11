@@ -61,12 +61,12 @@ const entry = await devbook.entry('indexName', 'entryID');
 // - Page size (optional, default is 100).
 // - Page ID used for pagination of results 
 //   (optional, page ID for retrieving the next page of entries.
-//   Is returned from the `devbook.entries` function in the `pageID` field of the return object.)
+//   Is returned from the `devbook.entries` function in the `pageID` field of the return object.).
 const pageSize = 100;
 const pageID = 'pageID';
 const entries = await devbook.entries('indexName', pageSize, pageID);
 
-// Get information about the extension
+// Get information about the extension.
 const info = await devbook.info();
 ```
 
