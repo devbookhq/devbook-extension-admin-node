@@ -45,9 +45,8 @@ const results = await devbook.search(['index1', 'index2'], query, pageSize, page
 
 // Delete indexed data.
 // Arguments:
-// - Data index from where you want to delete the data.
-// - IDs of entries in the index.
-await devbook.delete('indexName', ['entryID-1', 'entryID-2']);
+// - Data index from where you want to delete the all the data.
+await devbook.delete('indexName');
 
 // Read a single entry from an index.
 // Arguments:
