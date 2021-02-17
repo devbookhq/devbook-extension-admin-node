@@ -37,33 +37,49 @@ class Devbook {
 
   private async request(options: { method: Method, route?: string, data?: any, params?: any }) {
     const { method, route, data, params } = options;
-
-    const result = await axios({
-      url: `https://api.usedevbook.com/${this.apiVersion}/extension/${this.extensionID}${route ? route : ''}`,
-      method,
-      data,
-      params,
-      headers: {
-        'Authorization': `ApiKey ${this.secretAPIKey}`,
+    try {
+      const result = await axios({
+        url: `https://api.usedevbook.com/${this.apiVersion}/extension/${this.extensionID}${route ? route : ''}`,
+        method,
+        data,
+        params,
+        headers: {
+          'Authorization': `ApiKey ${this.secretAPIKey}`,
+        },
+      });
+      return result.data;
+    } catch (error) {
+      if (error.response) {
+        throw new Error(error.response.data.error.message);
+      } else {
+        throw error;
       }
-    });
-    return result.data;
+    }
   }
 
   public async search(
-    indexes: string[] | string,
+    indexOrIndexes: string[] | string,
     query: string,
     pageSize: number = 10,
-    pageNumber: number = 0): Promise<Entry[]> {
+    pageNumber: number = 0): Promise<Required<Entry>[]> {
+
+    let indexes: string[];
+
+    if (typeof indexOrIndexes === 'string') {
+      indexes = [indexOrIndexes];
+    } else {
+      indexes = indexOrIndexes
+    }
+
     return this.request({
       method: 'POST',
       route: '/entry/query',
       params: {
-        indexes,
         pageSize,
         pageNumber,
       },
       data: {
+        indexes,
         query,
       },
     });
@@ -92,8 +108,8 @@ class Devbook {
     });
   }
 
-  public async entry(index: string, id: string): Promise<Entry> {
-    return this.request({
+  public async entry(index: string, id: string): Promise<Required<Entry>> {
+    const data = await this.request({
       method: 'GET',
       route: `/entry`,
       params: {
@@ -101,10 +117,11 @@ class Devbook {
         entryID: id,
       },
     });
+    return data.entry;
   }
 
-  public async entries(index: string, pageSize: number = 100, pageID?: string): Promise<{ entries: Entry[], pageID: string }> {
-    return this.request({
+  public async entries(index: string, pageSize: number = 100, pageID?: string): Promise<{ entries: Required<Entry>[], pageID: string | undefined }> {
+    const data = await this.request({
       method: 'GET',
       route: '/entry',
       params: {
@@ -113,6 +130,7 @@ class Devbook {
         pageID,
       }
     });
+    return data;
   }
 
   public async info(): Promise<ExtensionInfo> {
