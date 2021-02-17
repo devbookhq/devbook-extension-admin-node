@@ -1,6 +1,6 @@
 {
   "name": "@devbookhq/extension-admin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "NodeJS wrapper around the Devbook extension API",
   "main": "lib/index.js",
   "scripts": {
