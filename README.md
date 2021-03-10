@@ -1,6 +1,8 @@
 # Devbook Extension Node.js library
 
-The Devbook Extension Node.js library provides convenient way to upload data in the Devbook search engine from your Node server.
+The Devbook Extension Node.js library provides convenient way to index your data and save them to the Devbook search engine from your Node server.
+
+The indexed data are used by the [Devbook extensions](https://github.com/DevbookHQ/devbook-extension) that can search in them.
 
 ## Installation
 ```
