@@ -1,6 +1,6 @@
 # Devbook Extension Node.js library
 
-The Devbook Extension Node.js library provides convenient access to the Devbook Extension API from applications written in server-side JavaScript.
+The Devbook Extension Node.js library provides convenient way to upload data in the Devbook search engine from your Node server.
 
 ## Installation
 ```
